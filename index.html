@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thiệp Cưới – Ngọc Tùng & Vân Anh</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Be+Vietnam+Pro:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #c9a96e;
+      --gold-light: #e8d5b0;
+      --gold-dark: #9a7a48;
+      --cream: #fdf9f3;
+      --deep: #2c1f0e;
+      --blush: #f5e6d8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      font-family: 'Be Vietnam Pro', sans-serif;
+      color: var(--deep);
+      overflow-x: hidden;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(160deg, #2c1f0e 0%, #3d2b14 40%, #1a110a 100%);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 60px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(201,169,110,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 60% at 80% 80%, rgba(201,169,110,0.08) 0%, transparent 60%);
+    }
+
+    /* petal decorations */
+    .petal { position: absolute; opacity: 0.12; font-size: 1.4rem; animation: fall linear infinite; }
+    .petal:nth-child(1)  { left:5%;  animation-duration:14s; animation-delay:0s; }
+    .petal:nth-child(2)  { left:18%; animation-duration:18s; animation-delay:3s; }
+    .petal:nth-child(3)  { left:33%; animation-duration:12s; animation-delay:6s; }
+    .petal:nth-child(4)  { left:55%; animation-duration:16s; animation-delay:1s; }
+    .petal:nth-child(5)  { left:72%; animation-duration:20s; animation-delay:8s; }
+    .petal:nth-child(6)  { left:88%; animation-duration:13s; animation-delay:4s; }
+    @keyframes fall {
+      from { transform: translateY(-60px) rotate(0deg); opacity: 0.15; }
+      to   { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    }
+
+    .save-the-date {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(0.7rem, 1.8vw, 0.9rem);
+      letter-spacing: 0.5em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      animation: fadeUp 1s ease both;
+    }
+
+    .hero-divider {
+      width: 120px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 16px auto;
+      animation: fadeUp 1s 0.2s ease both;
+    }
+
+    .hero-names {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 10vw, 6.5rem);
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.1;
+      animation: fadeUp 1s 0.4s ease both;
+    }
+
+    .hero-names .amp {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      color: var(--gold);
+      font-size: 0.65em;
+      display: block;
+      line-height: 1.5;
+    }
+
+    .hero-date {
+      margin-top: 36px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1rem, 3vw, 1.4rem);
+      color: var(--gold-light);
+      letter-spacing: 0.2em;
+      animation: fadeUp 1s 0.6s ease both;
+    }
+
+    .hero-time {
+      font-size: clamp(0.8rem, 2vw, 1rem);
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.15em;
+      margin-top: 8px;
+      animation: fadeUp 1s 0.8s ease both;
+    }
+
+    .scroll-hint {
+      position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+      color: var(--gold); font-size: 1.4rem;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%,100% { transform: translateX(-50%) translateY(0); }
+      50%      { transform: translateX(-50%) translateY(8px); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 80px 20px; }
+
+    .container { max-width: 720px; margin: 0 auto; }
+
+    .section-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      text-align: center;
+      color: var(--deep);
+      margin-bottom: 20px;
+      line-height: 1.25;
+    }
+
+    .gold-line {
+      width: 80px; height: 1.5px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 0 auto 40px;
+    }
+
+    /* ── INVITATION ── */
+    .invite-bg {
+      background: linear-gradient(135deg, #fdf9f3 0%, #f5e6d8 100%);
+      border-top: 1px solid var(--gold-light);
+      border-bottom: 1px solid var(--gold-light);
+    }
+
+    .families {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 20px; margin-bottom: 40px;
+    }
+
+    @media (max-width: 500px) {
+      .families { grid-template-columns: 1fr; }
+    }
+
+    .family-card {
+      background: #fff;
+      border: 1px solid var(--gold-light);
+      border-radius: 12px;
+      padding: 28px 20px;
+      text-align: center;
+    }
+
+    .family-card .tag {
+      font-size: 0.68rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .family-card .parents {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      color: var(--deep);
+      line-height: 1.7;
+    }
+
+    .couple-banner {
+      text-align: center;
+      padding: 40px 0;
+    }
+
+    .couple-banner .groom,
+    .couple-banner .bride {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 6vw, 3rem);
+      color: var(--deep);
+    }
+
+    .couple-banner .and-symbol {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      color: var(--gold);
+      display: block;
+      line-height: 1.2;
+      margin: 6px 0;
+    }
+
+    /* ── CALENDAR ── */
+    .calendar-section { background: var(--deep); }
+    .calendar-section .section-title { color: #fff; }
+    .calendar-section .section-label { color: var(--gold); }
+
+    .calendar-wrap {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(201,169,110,0.3);
+      border-radius: 16px;
+      padding: 32px;
+      max-width: 400px;
+      margin: 0 auto 40px;
+    }
+
+    .cal-month {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .cal-days-header {
+      display: grid; grid-template-columns: repeat(7, 1fr);
+      gap: 4px; margin-bottom: 6px;
+    }
+
+    .cal-days-header span {
+      text-align: center;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.4);
+      padding: 4px 0;
+    }
+
+    .cal-grid {
+      display: grid; grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+    }
+
+    .cal-grid .day {
+      aspect-ratio: 1;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.55);
+      cursor: default;
+    }
+
+    .cal-grid .day.empty { background: none; }
+    .cal-grid .day.highlight {
+      background: var(--gold);
+      color: var(--deep);
+      font-weight: 600;
+      font-size: 1rem;
+      box-shadow: 0 0 20px rgba(201,169,110,0.5);
+      animation: pulse 2s ease infinite;
+    }
+
+    @keyframes pulse {
+      0%,100% { box-shadow: 0 0 20px rgba(201,169,110,0.4); }
+      50%      { box-shadow: 0 0 35px rgba(201,169,110,0.8); }
+    }
+
+    .datetime-info {
+      display: flex; justify-content: center; gap: 40px;
+      flex-wrap: wrap; color: #fff;
+      text-align: center;
+    }
+
+    .datetime-info .block .value {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 5vw, 2.4rem);
+      color: var(--gold);
+      display: block;
+    }
+
+    .datetime-info .block .label {
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ── COUNTDOWN ── */
+    .countdown-section { background: var(--blush); }
+
+    .countdown {
+      display: flex; justify-content: center; gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .cd-box {
+      background: #fff;
+      border: 1px solid var(--gold-light);
+      border-radius: 12px;
+      padding: 24px 28px;
+      text-align: center;
+      min-width: 90px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+
+    .cd-box .num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: var(--deep);
+      display: block;
+      line-height: 1;
+    }
+
+    .cd-box .unit {
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin-top: 6px;
+    }
+
+    /* ── VENUE ── */
+    .venue-card {
+      background: #fff;
+      border: 1px solid var(--gold-light);
+      border-radius: 16px;
+      padding: 40px 32px;
+      text-align: center;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.07);
+    }
+
+    .venue-icon { font-size: 2.5rem; margin-bottom: 16px; }
+
+    .venue-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.3rem, 4vw, 1.8rem);
+      color: var(--deep);
+      margin-bottom: 8px;
+    }
+
+    .venue-addr {
+      font-size: 0.9rem;
+      color: #7a6248;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--deep);
+      font-family: 'Be Vietnam Pro', sans-serif;
+      font-weight: 500;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn:hover { background: var(--gold-dark); transform: translateY(-2px); }
+
+    /* ── RSVP ── */
+    .rsvp-section { background: linear-gradient(160deg, #2c1f0e, #3d2b14); }
+    .rsvp-section .section-title { color: #fff; }
+    .rsvp-section .section-label { color: var(--gold); }
+
+    .rsvp-form {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(201,169,110,0.25);
+      border-radius: 16px;
+      padding: 40px 32px;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .rsvp-options { display: flex; flex-direction: column; gap: 12px; margin: 24px 0; }
+
+    .rsvp-option {
+      display: flex; align-items: center; gap: 14px;
+      padding: 16px 20px;
+      border: 1px solid rgba(201,169,110,0.3);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: rgba(255,255,255,0.8);
+      font-size: 0.9rem;
+    }
+
+    .rsvp-option:hover,
+    .rsvp-option.selected {
+      background: rgba(201,169,110,0.15);
+      border-color: var(--gold);
+      color: #fff;
+    }
+
+    .rsvp-option input[type=radio] { display: none; }
+
+    .rsvp-option .radio-dot {
+      width: 18px; height: 18px; border-radius: 50%;
+      border: 2px solid var(--gold);
+      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .rsvp-option.selected .radio-dot::after {
+      content: '';
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      display: block;
+    }
+
+    .rsvp-btn {
+      width: 100%;
+      background: var(--gold);
+      color: var(--deep);
+      border: none;
+      padding: 16px;
+      border-radius: 50px;
+      font-family: 'Be Vietnam Pro', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 8px;
+    }
+
+    .rsvp-btn:hover { background: var(--gold-dark); }
+
+    .rsvp-note {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    /* ── GIFT ── */
+    .gift-note {
+      background: #fff;
+      border: 1px solid var(--gold-light);
+      border-radius: 16px;
+      padding: 40px 32px;
+      text-align: center;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+    }
+
+    .gift-note p {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: var(--deep);
+      margin-bottom: 24px;
+    }
+
+    .phone-num {
+      display: inline-block;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--gold-dark);
+      border-bottom: 1px solid var(--gold-light);
+      padding-bottom: 4px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--deep);
+      text-align: center;
+      padding: 60px 20px;
+      color: rgba(255,255,255,0.45);
+    }
+
+    footer .footer-names {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    footer .thank-you {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.6);
+      max-width: 500px;
+      margin: 0 auto 20px;
+      line-height: 1.7;
+    }
+
+    footer .copy {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    /* toast */
+    .toast {
+      position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
+      background: var(--deep);
+      color: var(--gold);
+      padding: 14px 28px;
+      border-radius: 50px;
+      border: 1px solid var(--gold);
+      font-size: 0.85rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      z-index: 999;
+      white-space: nowrap;
+    }
+
+    .toast.show { opacity: 1; }
+  </style>
+</head>
+<body>
+
+<!-- falling petals -->
+<div class="hero">
+  <span class="petal">🌸</span>
+  <span class="petal">🌸</span>
+  <span class="petal">✿</span>
+  <span class="petal">🌸</span>
+  <span class="petal">✿</span>
+  <span class="petal">🌸</span>
+
+  <p class="save-the-date">✦ Save the Date ✦</p>
+  <div class="hero-divider"></div>
+
+  <h1 class="hero-names">
+    Ngọc Tùng
+    <span class="amp">&amp;</span>
+    Vân Anh
+  </h1>
+
+  <div class="hero-divider" style="margin-top:20px"></div>
+
+  <p class="hero-date">17 · 05 · 2026</p>
+  <p class="hero-time">Chủ Nhật &nbsp;·&nbsp; 16 Giờ 00</p>
+
+  <div class="scroll-hint">↓</div>
+</div>
+
+
+<!-- INVITATION -->
+<section class="invite-bg">
+  <div class="container">
+    <p class="section-label">✦ Trân Trọng Kính Mời ✦</p>
+    <h2 class="section-title">Tham Dự Tiệc Mừng<br/><em style="font-style:italic;font-family:'Cormorant Garamond',serif">Lễ Thành Hôn</em></h2>
+    <div class="gold-line"></div>
+
+    <div class="families">
+      <div class="family-card">
+        <p class="tag">🕊 Nhà Trai</p>
+        <div class="parents">
+          Ông: <strong>Nguyễn Đình Đức</strong><br/>
+          Bà: <strong>Hoàng Thị Nghĩa</strong>
+        </div>
+      </div>
+      <div class="family-card">
+        <p class="tag">🌸 Nhà Gái</p>
+        <div class="parents">
+          Ông: <strong>Dương Văn Cầu</strong><br/>
+          Bà: <strong>Hoàng Thị Hiên</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="couple-banner">
+      <div class="groom">Nguyễn Ngọc Tùng</div>
+      <span class="and-symbol">&amp;</span>
+      <div class="bride">Dương Thị Vân Anh</div>
+    </div>
+
+    <p style="text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;color:#7a6248;line-height:1.8;max-width:520px;margin:0 auto">
+      Sự hiện diện của Quý vị và gia đình chính là món quà ý nghĩa nhất trong ngày trọng đại của chúng mình. Thật vinh hạnh và hạnh phúc được đón tiếp!
+    </p>
+  </div>
+</section>
+
+
+<!-- CALENDAR & TIME -->
+<section class="calendar-section">
+  <div class="container">
+    <p class="section-label">✦ Ngày Cưới ✦</p>
+    <h2 class="section-title">Thời Gian &amp; Ngày Tháng</h2>
+    <div class="gold-line" style="background:linear-gradient(90deg,transparent,var(--gold),transparent)"></div>
+
+    <div class="calendar-wrap">
+      <p class="cal-month">Tháng 05 · 2026</p>
+      <div class="cal-days-header">
+        <span>T2</span><span>T3</span><span>T4</span>
+        <span>T5</span><span>T6</span><span>T7</span><span>CN</span>
+      </div>
+      <div class="cal-grid" id="calGrid"></div>
+    </div>
+
+    <div class="datetime-info">
+      <div class="block"><span class="value">16:00</span><span class="label">Giờ</span></div>
+      <div class="block"><span class="value">Chủ Nhật</span><span class="label">Thứ</span></div>
+      <div class="block"><span class="value">17/05</span><span class="label">Ngày/Tháng</span></div>
+      <div class="block"><span class="value">2026</span><span class="label">Năm</span></div>
+    </div>
+
+    <p style="text-align:center;font-size:0.8rem;letter-spacing:0.15em;color:rgba(255,255,255,0.4);margin-top:24px">
+      (Tức Ngày 01 Tháng 4 Năm Bính Ngọ)
+    </p>
+  </div>
+</section>
+
+
+<!-- COUNTDOWN -->
+<section class="countdown-section">
+  <div class="container">
+    <p class="section-label">✦ Đếm Ngược ✦</p>
+    <h2 class="section-title">Hôn Lễ Diễn Ra Sau</h2>
+    <div class="gold-line"></div>
+
+    <div class="countdown">
+      <div class="cd-box"><span class="num" id="cd-days">--</span><span class="unit">Ngày</span></div>
+      <div class="cd-box"><span class="num" id="cd-hours">--</span><span class="unit">Giờ</span></div>
+      <div class="cd-box"><span class="num" id="cd-mins">--</span><span class="unit">Phút</span></div>
+      <div class="cd-box"><span class="num" id="cd-secs">--</span><span class="unit">Giây</span></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- VENUE -->
+<section>
+  <div class="container">
+    <p class="section-label">✦ Địa Điểm ✦</p>
+    <h2 class="section-title">Nơi Tổ Chức</h2>
+    <div class="gold-line"></div>
+
+    <div class="venue-card">
+      <div class="venue-icon">🏡</div>
+      <h3 class="venue-name">Tư Gia Nhà Trai</h3>
+      <p class="venue-addr">
+        Thôn Chùa – Xã Bố Hạ<br/>
+        Tỉnh Bắc Ninh
+      </p>
+      <a class="btn" href="https://maps.app.goo.gl/vA25UKDWsVwjSZwU6" target="_blank">
+        🗺️ &nbsp;Xem Trên Google Map
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- RSVP -->
+<section class="rsvp-section">
+  <div class="container">
+    <p class="section-label">✦ Xác Nhận ✦</p>
+    <h2 class="section-title">Gửi Lời Chúc</h2>
+    <div class="gold-line" style="background:linear-gradient(90deg,transparent,var(--gold),transparent)"></div>
+
+    <div class="rsvp-form">
+      <p style="color:rgba(255,255,255,0.7);text-align:center;font-size:0.9rem;line-height:1.6;margin-bottom:4px">
+        Bạn Có Đến Tham Dự Không?
+      </p>
+
+      <div class="rsvp-options" id="rsvpOptions">
+        <label class="rsvp-option" onclick="selectOption(this)">
+          <input type="radio" name="rsvp" value="yes"/>
+          <span class="radio-dot"></span>
+          🎉 &nbsp;Có, mình sẽ đến tham dự!
+        </label>
+        <label class="rsvp-option" onclick="selectOption(this)">
+          <input type="radio" name="rsvp" value="no"/>
+          <span class="radio-dot"></span>
+          😢 &nbsp;Mình không thể tham dự
+        </label>
+      </div>
+
+      <button class="rsvp-btn" onclick="submitRSVP()">Gửi Xác Nhận 💌</button>
+
+      <p class="rsvp-note">
+        Hãy xác nhận sự có mặt của bạn trước ngày <strong style="color:var(--gold)">01.05.2026</strong>.<br/>
+        Để chúng mình chuẩn bị đón tiếp một cách chu đáo nhất. Trân trọng!
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- GIFT / MỪNG CƯỚI -->
+<section>
+  <div class="container">
+    <p class="section-label">✦ Gửi Mừng Cưới ✦</p>
+    <h2 class="section-title">Mừng Cưới Online</h2>
+    <div class="gold-line"></div>
+
+    <div class="gift-note">
+      <p>
+        "Chân thành cảm ơn mọi người đã đến chung vui và gửi lời chúc phúc trong ngày trọng đại của chúng tôi. Sự hiện diện và tình cảm của mọi người là niềm hạnh phúc lớn nhất. ❤️"
+      </p>
+      <p style="font-size:0.8rem;letter-spacing:0.2em;color:var(--gold-dark);margin-bottom:12px;font-style:normal;font-family:'Be Vietnam Pro',sans-serif">SỐ ĐIỆN THOẠI / MOMO</p>
+      <span class="phone-num">0947 591 001</span>
+      <br/><br/>
+      <button class="btn" onclick="copyPhone()">📋 &nbsp;Nhấn Để Copy Số</button>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-names">Ngọc Tùng &amp; Vân Anh</p>
+  <p class="thank-you">
+    Rất Hân Hạnh Được Đón Tiếp Quý Khách!<br/>
+    Xin Cảm Ơn! ✨
+  </p>
+  <div class="hero-divider" style="opacity:0.3;margin-bottom:20px"></div>
+  <p class="copy">Thiệp Cưới Online · 17 · 05 · 2026</p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  // --- Calendar ---
+  const calGrid = document.getElementById('calGrid');
+  // Jan 2026: starts Thursday (index 3 from Mon=0)
+  const startDay = 4; // Thu
+  const totalDays = 31;
+  const weddingDay = 17;
+
+  for (let i = 0; i < startDay; i++) {
+    const empty = document.createElement('div');
+    empty.className = 'day empty';
+    calGrid.appendChild(empty);
+  }
+  for (let d = 1; d <= totalDays; d++) {
+    const cell = document.createElement('div');
+    cell.className = 'day' + (d === weddingDay ? ' highlight' : '');
+    cell.textContent = d;
+    calGrid.appendChild(cell);
+  }
+
+  // --- Countdown ---
+  function updateCountdown() {
+    const target = new Date('2026-05-17T16:00:00');
+    const now = new Date();
+    const diff = target - now;
+    if (diff <= 0) {
+      document.getElementById('cd-days').textContent = '0';
+      document.getElementById('cd-hours').textContent = '0';
+      document.getElementById('cd-mins').textContent = '0';
+      document.getElementById('cd-secs').textContent = '0';
+      return;
+    }
+    const days  = Math.floor(diff / 86400000);
+    const hours = Math.floor((diff % 86400000) / 3600000);
+    const mins  = Math.floor((diff % 3600000) / 60000);
+    const secs  = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cd-days').textContent  = String(days).padStart(2,'0');
+    document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
+    document.getElementById('cd-mins').textContent  = String(mins).padStart(2,'0');
+    document.getElementById('cd-secs').textContent  = String(secs).padStart(2,'0');
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // --- RSVP ---
+  function selectOption(el) {
+    document.querySelectorAll('.rsvp-option').forEach(o => o.classList.remove('selected'));
+    el.classList.add('selected');
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3000);
+  }
+
+  function submitRSVP() {
+    const sel = document.querySelector('.rsvp-option.selected');
+    if (!sel) { showToast('❗ Vui lòng chọn một tùy chọn'); return; }
+    const val = sel.querySelector('input').value;
+    if (val === 'yes') showToast('🎉 Cảm ơn bạn! Rất hân hạnh được đón tiếp!');
+    else showToast('💌 Cảm ơn bạn đã thông báo. Chúc bạn nhiều sức khoẻ!');
+  }
+
+  // --- Copy phone ---
+  function copyPhone() {
+    navigator.clipboard.writeText('0947591001').then(() => {
+      showToast('✅ Đã copy số điện thoại!');
+    }).catch(() => {
+      showToast('Số: 0947 591 001');
+    });
+  }
+</script>
+</body>
+</html>
